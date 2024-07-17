@@ -77,13 +77,15 @@ gui.addColor(option, "color").onChange(function(e){
 
 gui.add(option,'wireframe').onChange(function(e){
     sphere.material.wireframe = e
+    sphere2.material.wireframe = e
+    sphere3.material.wireframe = e
     ring.material.wireframe = e
 })
 
 const sphereGeo = new THREE.SphereGeometry(1,25,23)
 
-const sphereMaterial = new THREE.MeshStandardMaterial({color:"black" ,
-    map:textureLoader.load(saturn),
+const sphereMaterial = new THREE.MeshStandardMaterial({color:"purple" ,
+    map:textureLoader.load(galaxy),
     
 })
 
