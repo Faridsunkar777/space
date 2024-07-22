@@ -190,7 +190,7 @@ sphere.add(oct)
 
 oct.position.set(0,18)
 
-const octGeometry1 = new THREE.OctahedronGeometry(2, 3)
+const octGeometry1 = new THREE.OctahedronGeometry(2, 0)
 
 const octMaterial1 = new THREE.MeshBasicMaterial({color:"teal",
     map:textureLoader.load(galaxy)
