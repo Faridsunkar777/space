@@ -4,7 +4,7 @@ import stars from "./src/img/stars.jpg"
 import saturn from "./src/img/saturn.jpg"
 import galaxy from "./src/img/galaxy.jpg"
 import * as dat from "dat.gui";
-import { CSS2DRenderer, CSS2DObject } from 'three/examples/jsm/Addons.js';
+import { CSS2DRenderer } from 'three/examples/jsm/Addons.js';
 
 const scene = new THREE.Scene()
 
@@ -28,12 +28,13 @@ renderer.setAnimationLoop(animate)
 // orbit
 
 const orbit = new OrbitControls(camera, renderer.domElement);
-camera.position.set(0,0,50)
+camera.position.set(0,0,20)
 
 orbit.update()
 
 
 // html/css
+
 
 // texture
 
@@ -93,6 +94,8 @@ gui.add(option,'wireframe').onChange(function(e){
     ring.material.wireframe = e
     cone.material.wireframe = e
     cone1.material.wireframe = e
+    oct.material.wireframe = e
+    oct1.material.wireframe = e
 })
 
 const sphereGeo = new THREE.SphereGeometry(1,25,23)
@@ -173,6 +176,32 @@ cone1.position.set(0,-10)
 
 cone1.rotateZ(Math.PI / 1);
 
+
+const octGeometry = new THREE.OctahedronGeometry(2, 0)
+
+const octMaterial = new THREE.MeshBasicMaterial({color:"teal",
+    map:textureLoader.load(galaxy)
+})
+
+const oct = new THREE.Mesh(octGeometry ,octMaterial)
+
+sphere.add(oct)
+
+
+oct.position.set(0,18)
+
+const octGeometry1 = new THREE.OctahedronGeometry(2, 3)
+
+const octMaterial1 = new THREE.MeshBasicMaterial({color:"teal",
+    map:textureLoader.load(galaxy)
+})
+
+const oct1 = new THREE.Mesh(octGeometry1 ,octMaterial1)
+
+sphere.add(oct1)
+
+
+oct1.position.set(0,-18)
 
 function animate() {
 
